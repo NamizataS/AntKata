@@ -18,6 +18,11 @@ public class Colony {
         // TODO
         this.ants = new ArrayList<>();
         this.position = position;
+        this.foodCollected = 0;
+
+        for ( int i = 0; i < nbAnts; i++ ){
+            ants.add( new Ant(position) ); 
+        }
     }
 
     public int next(List<Point> food) {
