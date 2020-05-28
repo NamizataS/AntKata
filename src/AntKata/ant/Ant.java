@@ -15,6 +15,8 @@ public class Ant {
 
     public Ant(Point positionColony) {
         // TODO
+        this.lastKnownFoodPosition = this.position = positionColony;
+        this.status = Status.WANDERING;
     }
 
     private void scatter() {
@@ -22,6 +24,15 @@ public class Ant {
         int randomY = RNG.random(-1, 1);
 
         // TODO
+        switch (this.getStatus()){
+            case WANDERING:
+            case FETCHING_FOOD:
+                this.position = new Point(this.getPositionX() + randomX, this.getPositionY() + randomY );
+                break;
+            case RETURNING_COLONY:
+                this.position = new Point(this.getPositionX() - randomX, this.getPositionY() + randomY );
+                break;
+        }
     }
 
     // TODO Méthodes de classes
