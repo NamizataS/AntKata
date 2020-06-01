@@ -36,8 +36,9 @@ public class Field extends JPanel {
             @Override
             public void mouseClicked(MouseEvent e) {
                 try {
-                    image.setRGB(e.getX(), e.getY(), Color.green.getRGB());
+                    image.setRGB(e.getX(), e.getY(), Color.blue.getRGB()); //add a new food when the user click
                     // TODO
+                    food.add(new Food(e.getX(), e.getY()));
                     repaint();
                 } catch (Exception exception) {
                     System.out.println("Invalid click");
@@ -62,6 +63,7 @@ public class Field extends JPanel {
         JButton resetButton = new JButton("Reset");
         resetButton.addActionListener(e -> {
             //TODO
+            initColonyAndFood(); //return to the init state
         });
 
         // Init food collected labels
@@ -83,7 +85,7 @@ public class Field extends JPanel {
 
     private void initColonyAndFood() {
         // TODO
-        this.c = new Colony(0, new Point(this.widthX / 2, this.heightX / 2));
+        this.c = new Colony(1000, new Point(this.widthX / 2, this.heightX / 2));
         this.food = new ArrayList<>();
     }
 
