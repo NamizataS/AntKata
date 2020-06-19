@@ -31,6 +31,7 @@ public class Main {
 
         while (true) {
             f.nextTurn();
+
             Thread.sleep(50);
         }
     }
