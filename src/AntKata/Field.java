@@ -85,14 +85,16 @@ public class Field extends JPanel {
 
     private void initColonyAndFood() {
         // TODO
-        this.c = new Colony(1000, new Point(this.widthX / 2, this.heightX / 2));
+        this.c = new Colony(10, new Point(this.widthX / 2, this.heightX / 2));
         this.food = new ArrayList<>();
     }
 
     public void nextTurn() {
 
         // TODO add lifecycle
-
+        //to show the ants
+        ArrayList <Point> newFood = new ArrayList<Point>();
+        c.next(newFood);
         foodLabel.setText( Integer.toString(c.getFoodCollected()));
 
         this.image = new BufferedImage(widthX, heightX, BufferedImage.TYPE_INT_ARGB);
